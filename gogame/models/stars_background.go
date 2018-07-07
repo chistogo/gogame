@@ -3,6 +3,7 @@ package models
 import (
 	"github.com/veandco/go-sdl2/sdl"
 	"math/rand"
+	"github.com/chistogo/gogame/gogame/utils"
 )
 
 type Star struct {
@@ -16,10 +17,25 @@ type Star struct {
 type StarBackgroundModel struct {
 	Height int32
 	Width int32
+	Pos utils.VectorI
+	Parent *RenderableModel
 	StartCount int
 	points []sdl.Point
 	SkipFrame int32
 	skipFrameCount int32
+}
+
+
+func (m *StarBackgroundModel) GetPos()utils.VectorI{
+	return m.Pos
+}
+
+func (m *StarBackgroundModel) GetDisplayType() ModelDisplayType{
+	return 0
+}
+
+func (m *StarBackgroundModel) GetParent() *RenderableModel {
+	return m.Parent
 }
 
 func (m *StarBackgroundModel)Draw(renderer *sdl.Renderer)  {
