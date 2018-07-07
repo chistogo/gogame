@@ -55,7 +55,7 @@ func (m *Menu) LogicLoop(){
 
 		})
 		// Logic Runs at 2 Times the FPS
-		sdl.Delay(2* (1000 / CurrentGameConfig.FramesPerSecond))
+		sdl.Delay( (1000 / CurrentGameConfig.FramesPerSecond) / 2)
 	}
 
 }
